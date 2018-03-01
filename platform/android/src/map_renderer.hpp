@@ -98,6 +98,10 @@ private:
 
     void onSurfaceChanged(JNIEnv&, jint width, jint height);
 
+    void onResume(JNIEnv&);
+
+    void onPause(JNIEnv&);
+
 private:
     GenericUniqueWeakObject<MapRenderer> javaPeer;
 
@@ -120,6 +124,7 @@ private:
     std::mutex updateMutex;
 
     bool framebufferSizeChanged = false;
+    bool paused = false;
 
     std::unique_ptr<SnapshotCallback> snapshotCallback;
 };
